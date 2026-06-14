@@ -1023,7 +1023,7 @@ async function sendToSpreadsheet(data){
 
     const response =
         await fetch(
-            "https://script.google.com/macros/s/AKfycbyEzxm6RRLO3i1Y0MdYIw_z7oV4WkaEPJnvX2klfcEN0wWsB463fwITWEWs4SF_LwhV/exec",
+            "https://script.google.com/macros/s/AKfycbxirIXwQ-4oRIbAjYZT3oDstcWaMXRRNNycl9mp_URMMSnIE5L6R6SZrzEPg5QVhkDR/exec",
             {
                 method: "POST",
                 body: JSON.stringify(data)
