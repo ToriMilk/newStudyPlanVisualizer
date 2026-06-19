@@ -119,6 +119,10 @@ const SUBJECT_LABELS = {
     "地理": "地"
 };
 
+const MATERIAL_LABELS = {
+    "システム英単語": "単語"
+};
+
 function shouldShowTimeLabel(timeStr){
 
     const minutes =
@@ -536,7 +540,16 @@ data.week.forEach((day,index)=>{
         ctx.lineTo(x2 - ARROW_SIZE, centerY + ARROW_SIZE);
         ctx.stroke();
 
-        // 教科名
+        // ラベル（教材名 or 教科名）
+
+        const hasMaterial =
+            plan.material &&
+            plan.material !== "null";
+
+        const label =
+            hasMaterial
+            ? (MATERIAL_LABELS[plan.material] || plan.material)
+            : (SUBJECT_LABELS[plan.subject] || "?");
 
         ctx.fillStyle = color;
         ctx.font = "bold 18px sans-serif";
@@ -544,7 +557,7 @@ data.week.forEach((day,index)=>{
         ctx.textBaseline = "middle";
 
         ctx.fillText(
-            SUBJECT_LABELS[plan.subject] || "?",
+            label,
             (x1 + x2) / 2,
             centerY - 18
         );
