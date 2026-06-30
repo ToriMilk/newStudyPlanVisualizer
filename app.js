@@ -280,10 +280,13 @@ ctx.clearRect(
 
 const W = canvas.width / scale;
 
+// 穴あけパンチ用の上部余白（15mm相当）
+const topMargin = 88;
+
 const leftCol = 70;
 const rightCol = 70;
 
-const headerHeight = 30;
+const headerHeight = 30 + topMargin;
 
 const rowHeight =
     100;
@@ -607,15 +610,6 @@ data.week.forEach((day,index)=>{
 
 const stats =
     data.stats.current;
-
-console.log(stats);
-
-console.log(
-    "総勉強時間",
-    formatMinutes(
-        stats.totalMinutes
-    )
-);
 
 const analysisTop =
     headerHeight + bodyHeight;
@@ -956,7 +950,7 @@ const messageX = W * 0.05;
 const messageY = analysisTop + 250;
 
 const messageWidth = W * 0.73;
-const messageHeight = 180;
+const messageHeight = 92;
 
 
 ctx.textAlign = "left";
